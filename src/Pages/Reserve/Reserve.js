@@ -93,59 +93,61 @@ function Reserve() {
                           </PriceValue>
                         </PriceContainer>
                       </Container>
-                      <Container>
-                        <div>
-                          <FlexBox>
-                            <Logo>
-                              <img
-                                alt="택시회사로고"
-                                src={reserved.coming_taxi_company_logo}
-                              />
-                            </Logo>
-                            <Company>
-                              <Word>{reserved.coming_taxi_company_name}</Word>
-                            </Company>
-                          </FlexBox>
-                        </div>
-                        <ScheduleContainer>
-                          <Area>{reserved.arrival_location}</Area>
-                          <Schedule>
-                            <Departure>
-                              <FlightTime>
-                                {reserved.coming_departure_time.slice(-8, -3)}
-                              </FlightTime>
-                              <SpotCode>
-                                {reserved.arrival_location_code}
-                                <br />
-                                {reserved.comeback_date}
-                              </SpotCode>
-                            </Departure>
-                            <TimeGroup>
-                              <LineTo type="oneWay" color="#848c94" />
-                            </TimeGroup>
-                            <Arrival>
-                              <FlightTime>
-                                {reserved.coming_arrival_time.slice(-8, -3)}
-                              </FlightTime>
-                              <SpotCode>
-                                {reserved.departure_location_code}
-                                <br />
-                                {reserved.comeback_date}
-                              </SpotCode>
-                            </Arrival>
-                          </Schedule>
-                          <Area>{reserved.departure_location}</Area>
-                        </ScheduleContainer>
-                        <Word>{reserved.passenger_number}명</Word>
-                        <Word>{reserved.round_trip}</Word>
-                        <PriceContainer>
-                          <PriceTitle>비용</PriceTitle>
-                          <PriceValue>
-                            {Number(reserved.coming_price).toLocaleString() +
-                              '원'}
-                          </PriceValue>
-                        </PriceContainer>
-                      </Container>
+                      {reserved.comeback_date && (
+                        <Container>
+                          <div>
+                            <FlexBox>
+                              <Logo>
+                                <img
+                                  alt="택시회사로고"
+                                  src={reserved.coming_taxi_company_logo}
+                                />
+                              </Logo>
+                              <Company>
+                                <Word>{reserved.coming_taxi_company_name}</Word>
+                              </Company>
+                            </FlexBox>
+                          </div>
+                          <ScheduleContainer>
+                            <Area>{reserved.arrival_location}</Area>
+                            <Schedule>
+                              <Departure>
+                                <FlightTime>
+                                  {reserved.coming_departure_time.slice(-8, -3)}
+                                </FlightTime>
+                                <SpotCode>
+                                  {reserved.arrival_location_code}
+                                  <br />
+                                  {reserved.comeback_date}
+                                </SpotCode>
+                              </Departure>
+                              <TimeGroup>
+                                <LineTo type="oneWay" color="#848c94" />
+                              </TimeGroup>
+                              <Arrival>
+                                <FlightTime>
+                                  {reserved.coming_arrival_time.slice(-8, -3)}
+                                </FlightTime>
+                                <SpotCode>
+                                  {reserved.departure_location_code}
+                                  <br />
+                                  {reserved.comeback_date}
+                                </SpotCode>
+                              </Arrival>
+                            </Schedule>
+                            <Area>{reserved.departure_location}</Area>
+                          </ScheduleContainer>
+                          <Word>{reserved.passenger_number}명</Word>
+                          <Word>{reserved.round_trip}</Word>
+                          <PriceContainer>
+                            <PriceTitle>비용</PriceTitle>
+                            <PriceValue>
+                              {Number(reserved.coming_price).toLocaleString() +
+                                '원'}
+                            </PriceValue>
+                          </PriceContainer>
+                        </Container>
+                      )}
                     </BigContainer>
                   </>
                 ))}
